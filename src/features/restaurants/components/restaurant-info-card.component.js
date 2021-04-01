@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
+import { Spacer } from "../../../components/spacer/spacer.component";
 
 const RestaurantCard = styled(Card)`
   ${(props) => props.theme.colors.bg.primary};
@@ -47,7 +48,6 @@ const Rating = styled(View)`
 `;
 
 const ImageStyled = styled(Image)`
-  margin-left: 10;
   width: 20px;
   height: 20px;
 `;
@@ -67,7 +67,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
 
-
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
@@ -85,8 +84,12 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                 CLOSED TEMPORARILY
               </Text>
             )}
-            {isOpenNow && <SvgXml xml={open} width={20} height={20}></SvgXml>}
-            <ImageStyled source={{ uri: icon }} />
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20}></SvgXml>}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <ImageStyled source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
