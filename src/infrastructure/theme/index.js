@@ -9,6 +9,6 @@ export const theme = {
   lineHeights,
   sizes,
   fonts,
-  fontWeights,
   fontSizes,
+  fontWeights,
 };
